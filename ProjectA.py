@@ -9,9 +9,6 @@ serverSocket = socket(AF_INET, SOCK_STREAM)
 serverPort = 6789
 serverSocket.bind(("192.168.0.2", serverPort))
 
-
-# Fill in end
-
 def handle_client(conn, addr):
     global message
     print(f"[NEW CONNECTION] {addr} connected.")
