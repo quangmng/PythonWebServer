@@ -48,9 +48,6 @@ def handle_client(conn, addr):
     conn.close()
 
 
-
-serverSocket.close()
-
 print("[STARTING] server is starting...")
 start()
 sys.exit()  # Terminate the program after sending the corresponding data
