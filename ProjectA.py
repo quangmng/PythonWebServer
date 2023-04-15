@@ -50,4 +50,4 @@ def handle_client(conn, addr):
 
 print("[STARTING] server is starting...")
 start()
-sys.exit()  # Terminate the program after sending the corresponding data
+sys.exit()  # Terminate the program
