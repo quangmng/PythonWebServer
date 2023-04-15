@@ -21,8 +21,6 @@ def start():
 
 
 def handle_client(conn, addr):
-    global message
-
     print(f"[NEW CONNECTION] {addr} connected.")
     try:
         message = conn.recv(1024).decode()
@@ -38,11 +36,12 @@ def handle_client(conn, addr):
             conn.send(outputdata[i].encode())
         conn.send("\r\n".encode())
 
+        conn.close()
+
     except IOError:
         # Send response message for file not found
         conn.send("HTTP/1.1 404 Not Found\r\n\r\n".encode())
         conn.send("<html><title>404 Not Found</title><body><h1>404 Not Found</h1></body></html>\r\n".encode())
-        conn.close()
 
     # Close client socket
     conn.close()
@@ -50,4 +49,5 @@ def handle_client(conn, addr):
 
 print("[STARTING] server is starting...")
 start()
+serverSocket.close()
 sys.exit()  # Terminate the program
